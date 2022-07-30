@@ -26,3 +26,12 @@ La tabla anterior muestra el número de mujeres que dieron a luz durante los añ
 yearly <- mutate(yearly, proportion_deaths = deaths/births)
 print(yearly)
 ```
+***
+
+### Muerte en las clínicas\
+
+  - Utilice ggplot para hacer una gráfica lineal de proportion_deaths por año (columna year) con una línea por clínica.
+  - Las líneas deben tener colores distintos    
+```{r}
+ggplot(yearly, aes(x=year,y=proportion_deaths, group=clinic, color=clinic))+geom_line()
+```
