@@ -23,6 +23,7 @@ La tabla anterior muestra el número de mujeres que dieron a luz durante los añ
 
   - Use mutate para agregar la columna proportion_deaths a yearly, esta nueva columna se calculará como la proporción de muertes por número de nacimientos
 - Imprima yearly.
+
 ```{r}
 yearly <- mutate(yearly, proportion_deaths = deaths/births)
 print(yearly)
@@ -33,6 +34,7 @@ print(yearly)
 
   - Utilice ggplot para hacer una gráfica lineal de proportion_deaths por año (columna year) con una línea por clínica.
   - Las líneas deben tener colores distintos    
+  
 ```{r}
 ggplot(yearly, aes(x=year,y=proportion_deaths, group=clinic, color=clinic))+geom_line()
 ```
@@ -47,8 +49,38 @@ Se empezó a sospechar que algo en los cadáveres, propagado de las manos de los
   - Cargue los datos mensuales de la Clínica 1 para ver si el lavado de manos tuvo algún efecto, para esto lea el archivo deaths_clinic_1.csv y asígnelo a la variable monthly.
   - Agregue la columna proportion_deaths a monthly, esta nueva columna se calculará como la proporción de muertes por número de nacimientos
   - Imprima las primeras filas de monthly usando la función head().
+  
 ```{r}
 monthly <- read_csv("./data/deaths_clinic_1.csv",show_col_types = FALSE)
 monthly <- mutate(monthly, proportion_deaths = deaths/births)
 print(head(monthly,n=10))
 ```
+***
+
+### El efecto del lavado de manos\
+
+Con los datos cargados, ahora podemos ver la proporción de muertes a lo largo del tiempo.
+
+  - Haga una gráfica lineal de proportion_deaths por fecha para el data frame monthly usando ggplot.
+  - Utilice la función labs para dar al eje x y al eje y una estética a las etiquetas.
+  - Use group_by y summarise para encontrar la media por año y guárdelo en el dataset death_by_year.
+  - Utilice el conjunto de datos death_by_year para crear un gráfico de barras que muestre la media en cada año.
+
+```{r}
+graph <- ggplot(monthly, aes(x=date,y=proportion_deaths,color="Clínica 1"))+geom_line(colour="#000099")
+
+graph + labs(title="Clinica 1: Muertes por número de Nacimiento a través del tiempo",
+            subtitle = "Fecha 1841-1849",
+            x="Fecha",
+            y="Muertes por número de Nacimientos")
+
+death_by_year <- monthly%>%group_by(format(as.Date(date, format="%d/%m/%Y"),"%Y"))%>%summarise(Mean = mean(proportion_deaths))
+names(death_by_year)[1] = "Year"
+
+mean_graph <- ggplot(death_by_year, aes(x=Year,y=Mean))+geom_bar(stat='identity',colour="#000099", fill = "#000099")
+mean_graph + labs(title="Clinica 1: Media de proporciones por año",
+            subtitle = "Fecha 1841-1849",
+            x="Año",
+            y="Media")
+```
+***
