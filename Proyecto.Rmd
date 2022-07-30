@@ -84,3 +84,24 @@ mean_graph + labs(title="Clinica 1: Media de proporciones por año",
             y="Media")
 ```
 ***
+
+### Los resultados del lavado de manos\
+
+A partir del año 1847 la proporción de muertes se reduce drásticamente y, sí, fue entonces cuando se hizo obligatorio el lavado de manos.\
+
+El efecto del lavado de manos se hace aún más claro si lo resaltamos en el gráfico.\
+
+ - Agregue una columna TRUE/FALSE a monthly llamado handwashing_started, que será TRUE a partir del año en que se impuso el lavado de manos.
+ - Haga una gráfica lineal de proportion_deaths por fecha para el data frame monthly usando ggplot. Haga que el color de la línea dependa de handwashing_started.
+ - Utilice la función labs para dar al eje x y al eje y una estética a las etiquetas.
+
+```{r}
+monthly <- mutate(monthly, handwashing_started = format(as.Date(date, format="%d/%m/%Y"),"%Y")>=1847)
+graph_handwashing_started <- ggplot(monthly, aes(x=date,y=proportion_deaths,color=handwashing_started))+geom_line()
+
+graph_handwashing_started + labs(title="Clinica 1: Muertes por número de Nacimiento a través del tiempo",
+            subtitle = "Fecha 1841-1849",
+            x="Fecha",
+            y="Muertes por número de Nacimientos") + scale_color_discrete(name = "Se lavaban las manos", labels = c("NO", "SI"))
+```
+***
