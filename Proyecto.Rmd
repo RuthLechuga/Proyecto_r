@@ -1,5 +1,6 @@
 ---
 title: "Proyecto 1"
+date: "`r format(Sys.time(), '%d %B %Y')`"
 author: "Ruth Nohemy Ardón Lechuga, 999006711"
 output: html_notebook
 ---
@@ -34,4 +35,20 @@ print(yearly)
   - Las líneas deben tener colores distintos    
 ```{r}
 ggplot(yearly, aes(x=year,y=proportion_deaths, group=clinic, color=clinic))+geom_line()
+```
+***
+
+### Comienza el lavado de manos\
+
+¿Por qué la proporción de muertes es mucho más alta en la Clínica 1? La única diferencia en ambas clínicas era que muchos estudiantes de medicina trabajaban en la Clínica 1, mientras que en la Clínica 2 no había tantos. Otro dato interesante es que los médicos que atendían partos solo se encargaban de esa función, mientras que los estudiantes también pasaban tiempo en las salas de autopsias examinando cadáveres.\
+
+Se empezó a sospechar que algo en los cadáveres, propagado de las manos de los estudiantes de medicina, causaba la enfermedad. Entonces, en un intento desesperado por detener las altas tasas de mortalidad, se decretó: ¡Lávese las manos en todo momento!
+
+  - Cargue los datos mensuales de la Clínica 1 para ver si el lavado de manos tuvo algún efecto, para esto lea el archivo deaths_clinic_1.csv y asígnelo a la variable monthly.
+  - Agregue la columna proportion_deaths a monthly, esta nueva columna se calculará como la proporción de muertes por número de nacimientos
+  - Imprima las primeras filas de monthly usando la función head().
+```{r}
+monthly <- read_csv("./data/deaths_clinic_1.csv",show_col_types = FALSE)
+monthly <- mutate(monthly, proportion_deaths = deaths/births)
+print(head(monthly,n=10))
 ```
