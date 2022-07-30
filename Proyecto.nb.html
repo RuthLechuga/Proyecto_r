@@ -1793,13 +1793,42 @@ print(yearly)</code></pre>
   </script>
 </div>
 <!-- rnb-frame-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuTkFcbmBgYCJ9 -->
-<pre class="r"><code>NA</code></pre>
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<hr />
+</div>
+<div id="el-alarmante-número-de-muertes" class="section level3">
+<h3>El alarmante número de muertes<br />
+</h3>
+<p>La tabla anterior muestra el número de mujeres que dieron a luz
+durante los años 1841 a 1846 en una ciudad al noreste de Austria, en dos
+clínicas en particular. Notará que dar a luz era muy peligroso; un
+número alarmante de mujeres murió como resultado del parto. Vemos esto
+con mayor claridad si observamos la proporción de muertes con respecto
+al número de mujeres que dieron a luz</p>
+<ul>
+<li>Use mutate para agregar la columna proportion_deaths a yearly, esta
+nueva columna se calculará como la proporción de muertes por número de
+nacimientos</li>
+<li>Imprima yearly.</li>
+</ul>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueWVhcmx5IDwtIG11dGF0ZSh5ZWFybHksIHByb3BvcnRpb25fZGVhdGhzID0gZGVhdGhzL2JpcnRocylcbnByaW50KHllYXJseSlcbmBgYCJ9 -->
+<pre class="r"><code>yearly &lt;- mutate(yearly, proportion_deaths = deaths/births)
+print(yearly)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MTIsIm5jb2wiOjUsInN1bW1hcnkiOnsiQSB0aWJibGUiOlsiMTIgw5cgNSJdfX0sInJkZiI6Ikg0c0lBQUFBQUFBQUJndHlpVERtaXVCaVlHQmdabUJoWW1SZ1pnVXlHVmhEUTl4MExSaUFJa0FPSXdNTEF5ZUlyZ0FxRWdiSkFqRWZFUE00ekRrQ1VzM2dNT2NFbEQ0RHBTOUE2U3RRK2dhVUprMDkzSjdsT3lEaUs5ZEI2T1V2SVBTS1ZSQjZ0UWVFWGg4Q29SZUxRT2dseHlEMDBqU29QZ21vT1VFUWVtMElxajI1Q3lEaURRWVF1bEFCUWhjNFFPZzhLTDltQTRRT2JZRFFtVkQ1RkNnL0VHS29Rd0NVSCtVQXMwY0FaQTgwUURtU2N6THpNcE1WREduTU42STZIeHBlOXB0L2Y3NDlhWWVHL1JIdE4vOVYxaDIxMy9iR2Nkb2J4K24yVzBXRFoxV2UvbWkvY2RYWFBiMXZMOW52OVcyWUxEYXowbjRSKy9lNW5MZlcyVzh1V3BYeFVYaXYvYm9WUE5zRUR5bllUKzlMOEoxeDVMRDlsRnRCODBYZWRkdlBXV0xHVkZLNUFpMEJzdVlsNXFZV1F3T1JGU3JJVXBtYVdBUmxzeVZsRnBWa0ZNTjRLYW1KU0R5STQ2RTh3WUtpL0lMOG9wTE0vTHg0cURKVXV6aUw4c3YxWVBieEFqRVRLQ3IvLy8vL0JkMVJ5VG1KeFRCSHdRUzVVaEpMRXZYU2lvRDZnYngvYUZyWTh3dEFGZ00xTWNHeUU3Sm14aUkwQVlIU1BKQkxVblNUTTByenNuVU5RWW1UQ3l3UEFieFFOZzhTbXhWaUo5Ti90T0JpUzgxTHo4eExoVGsrSnpFcE5RZks0UU42R2V4anZZS2l6THdTbUZlQW9zVjZKZmtsaVRCMVhNbjVPVEFSc09jWS9nRUE4Qk9xTUVZRUFBQT0ifQ== -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["year"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["births"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["deaths"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["clinic"],"name":[4],"type":["chr"],"align":["left"]},{"label":["proportion_deaths"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"1841","2":"3036","3":"237","4":"clinic 1","5":"0.07806324"},{"1":"1842","2":"3287","3":"518","4":"clinic 1","5":"0.15759051"},{"1":"1843","2":"3060","3":"274","4":"clinic 1","5":"0.08954248"},{"1":"1844","2":"3157","3":"260","4":"clinic 1","5":"0.08235667"},{"1":"1845","2":"3492","3":"241","4":"clinic 1","5":"0.06901489"},{"1":"1846","2":"4010","3":"459","4":"clinic 1","5":"0.11446384"},{"1":"1841","2":"2442","3":"86","4":"clinic 2","5":"0.03521704"},{"1":"1842","2":"2659","3":"202","4":"clinic 2","5":"0.07596841"},{"1":"1843","2":"2739","3":"164","4":"clinic 2","5":"0.05987587"},{"1":"1844","2":"2956","3":"68","4":"clinic 2","5":"0.02300406"},{"1":"1845","2":"3241","3":"66","4":"clinic 2","5":"0.02036409"},{"1":"1846","2":"3754","3":"105","4":"clinic 2","5":"0.02797017"}],"options":{"columns":{"min":{},"max":[10],"total":[5]},"rows":{"min":[10],"max":[10],"total":[12]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlByb3llY3RvIDEiDQphdXRob3I6ICJSdXRoIE5vaGVteSBBcmTDs24gTGVjaHVnYSwgOTk5MDA2NzExIg0Kb3V0cHV0OiBodG1sX25vdGVib29rDQotLS0NCg0KIyMjIENvbm9jaWVuZG8gbG9zIGRhdG9zXA0KICAtIENhcmd1ZSBlbCBwYXF1ZXRlIHRpZHl2ZXJzZS4NCi0gTGVhIGVsIGFyY2hpdm8gZGVhdGhzX2hhbmR3YXNoaW5nLmNzdiB1c2FuZG8gcmVhZF9jc3YgeSBhc8OtZ25lbG8gYSBsYSB2YXJpYWJsZSB5ZWFybHkuDQotIEltcHJpbWEgbGEgdmFyaWFibGUgeWVhcmx5Lg0KDQpgYGB7cn0NCmxpYnJhcnkodGlkeXZlcnNlKQ0KeWVhcmx5IDwtIHJlYWRfY3N2KCIuL2RhdGEvZGVhdGhzX2hhbmR3YXNoaW5nLmNzdiIsc2hvd19jb2xfdHlwZXMgPSBGQUxTRSkNCnByaW50KHllYXJseSkNCg0KYGBgDQo=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlByb3llY3RvIDEiDQphdXRob3I6ICJSdXRoIE5vaGVteSBBcmTDs24gTGVjaHVnYSwgOTk5MDA2NzExIg0Kb3V0cHV0OiBodG1sX25vdGVib29rDQotLS0NCg0KIyMjIENvbm9jaWVuZG8gbG9zIGRhdG9zXA0KICAtIENhcmd1ZSBlbCBwYXF1ZXRlIHRpZHl2ZXJzZS4NCi0gTGVhIGVsIGFyY2hpdm8gZGVhdGhzX2hhbmR3YXNoaW5nLmNzdiB1c2FuZG8gcmVhZF9jc3YgeSBhc8OtZ25lbG8gYSBsYSB2YXJpYWJsZSB5ZWFybHkuDQotIEltcHJpbWEgbGEgdmFyaWFibGUgeWVhcmx5Lg0KDQpgYGB7cn0NCmxpYnJhcnkodGlkeXZlcnNlKQ0KeWVhcmx5IDwtIHJlYWRfY3N2KCIuL2RhdGEvZGVhdGhzX2hhbmR3YXNoaW5nLmNzdiIsc2hvd19jb2xfdHlwZXMgPSBGQUxTRSkNCnByaW50KHllYXJseSkNCmBgYA0KKioqDQoNCiMjIyBFbCBhbGFybWFudGUgbsO6bWVybyBkZSBtdWVydGVzXA0KDQpMYSB0YWJsYSBhbnRlcmlvciBtdWVzdHJhIGVsIG7Dum1lcm8gZGUgbXVqZXJlcyBxdWUgZGllcm9uIGEgbHV6IGR1cmFudGUgbG9zIGHDsW9zIDE4NDEgYSAxODQ2IGVuIHVuYSBjaXVkYWQgYWwgbm9yZXN0ZSBkZSBBdXN0cmlhLCBlbiBkb3MgY2zDrW5pY2FzIGVuIHBhcnRpY3VsYXIuIE5vdGFyw6EgcXVlIGRhciBhIGx1eiBlcmEgbXV5IHBlbGlncm9zbzsgdW4gbsO6bWVybyBhbGFybWFudGUgZGUgbXVqZXJlcyBtdXJpw7MgY29tbyByZXN1bHRhZG8gZGVsIHBhcnRvLiBWZW1vcyBlc3RvIGNvbiBtYXlvciBjbGFyaWRhZCBzaSBvYnNlcnZhbW9zIGxhIHByb3BvcmNpw7NuIGRlIG11ZXJ0ZXMgY29uIHJlc3BlY3RvIGFsIG7Dum1lcm8gZGUgbXVqZXJlcyBxdWUgZGllcm9uIGEgbHV6DQoNCiAgLSBVc2UgbXV0YXRlIHBhcmEgYWdyZWdhciBsYSBjb2x1bW5hIHByb3BvcnRpb25fZGVhdGhzIGEgeWVhcmx5LCBlc3RhIG51ZXZhIGNvbHVtbmEgc2UgY2FsY3VsYXLDoSBjb21vIGxhIHByb3BvcmNpw7NuIGRlIG11ZXJ0ZXMgcG9yIG7Dum1lcm8gZGUgbmFjaW1pZW50b3MNCi0gSW1wcmltYSB5ZWFybHkuDQpgYGB7cn0NCnllYXJseSA8LSBtdXRhdGUoeWVhcmx5LCBwcm9wb3J0aW9uX2RlYXRocyA9IGRlYXRocy9iaXJ0aHMpDQpwcmludCh5ZWFybHkpDQpgYGA=</div>
 
 
 

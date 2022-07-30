@@ -13,5 +13,16 @@ output: html_notebook
 library(tidyverse)
 yearly <- read_csv("./data/deaths_handwashing.csv",show_col_types = FALSE)
 print(yearly)
+```
+***
 
+### El alarmante número de muertes\
+
+La tabla anterior muestra el número de mujeres que dieron a luz durante los años 1841 a 1846 en una ciudad al noreste de Austria, en dos clínicas en particular. Notará que dar a luz era muy peligroso; un número alarmante de mujeres murió como resultado del parto. Vemos esto con mayor claridad si observamos la proporción de muertes con respecto al número de mujeres que dieron a luz
+
+  - Use mutate para agregar la columna proportion_deaths a yearly, esta nueva columna se calculará como la proporción de muertes por número de nacimientos
+- Imprima yearly.
+```{r}
+yearly <- mutate(yearly, proportion_deaths = deaths/births)
+print(yearly)
 ```
