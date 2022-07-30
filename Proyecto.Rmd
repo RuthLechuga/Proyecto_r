@@ -1,0 +1,17 @@
+---
+title: "Proyecto 1"
+author: "Ruth Nohemy Ardón Lechuga, 999006711"
+output: html_notebook
+---
+
+### Conociendo los datos\
+  - Cargue el paquete tidyverse.
+- Lea el archivo deaths_handwashing.csv usando read_csv y asígnelo a la variable yearly.
+- Imprima la variable yearly.
+
+```{r}
+library(tidyverse)
+yearly <- read_csv("./data/deaths_handwashing.csv",show_col_types = FALSE)
+print(yearly)
+
+```
