@@ -105,3 +105,17 @@ graph_handwashing_started + labs(title="Clinica 1: Muertes por número de Nacimi
             y="Muertes por número de Nacimientos") + scale_color_discrete(name = "Se lavaban las manos", labels = c("NO", "SI"))
 ```
 ***
+
+### ¿Más lavado de manos, menos muertes?\
+
+Nuevamente, las estadísticas demuestran que lavarse las manos tuvo un efecto enorme. ¿Cuánto redujo la proporción mensual de muertes en promedio?
+
+  - Utilice group_by y summarise para calcular el promedio de proportion_deaths antes y después de que se impusiera el lavado de manos.
+  - Asigne el resultado en la variable month_summary e imprímala.
+
+```{r}
+month_summary <- monthly%>%group_by(handwashing_started)%>%summarise(Mean = mean(proportion_deaths))
+print(month_summary)
+```
+***
+
