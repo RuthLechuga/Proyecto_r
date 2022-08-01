@@ -119,3 +119,21 @@ print(month_summary)
 ```
 ***
 
+### Análisis estadístico de los datos de lavado de manos\
+
+¡Redujo la proporción de muertes en alrededor de 8 puntos porcentuales! Del 10% en promedio antes del lavado de manos a solo el 2% cuando se hizo cumplir el lavado de manos (que sigue siendo un número alto según los estándares modernos). Para tener una idea de la incertidumbre en torno a cuánto se reduce la mortalidad por lavarse las manos, podríamos observar un intervalo de confianza (aquí calculado mediante una prueba t).\
+
+Utilice la función t.test para calcular un intervalo de confianza del 95%. Los dos grupos que tenemos son proporción mensual de muertes antes y después de que comenzara el lavado de manos “proportion_deaths” y “handwashing_started”.\
+
+```{r}
+monthly_true <- (monthly%>%filter(handwashing_started))$proportion_deaths
+monthly_false <- (monthly%>%filter(!handwashing_started))$proportion_deaths
+
+t.test(
+  x=monthly_true,
+  y=monthly_false,
+  alternative = "two.sided",
+  mu          = 0,
+  var.equal   = TRUE,
+  conf.level  = 0.95)
+```
